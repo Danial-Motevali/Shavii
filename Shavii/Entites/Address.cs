@@ -8,6 +8,8 @@
 
         public string street { get; set; } = string.Empty;
 
+        public int BuyerId { get; set; }
+
         public Buyer Buyer { get; set; }
     }
 }
