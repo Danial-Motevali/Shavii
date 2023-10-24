@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Shavii.Data.Ef;
+
 namespace Shavii
 {
     public class Program
@@ -13,6 +17,10 @@ namespace Shavii
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<ShaviiDbContext>(option =>
+                option.UseSqlServer(builder.Configuration.GetConnectionString("DefultConnection"))
+            );
 
             var app = builder.Build();
 
