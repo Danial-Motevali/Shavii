@@ -4,13 +4,14 @@ namespace Shavii.Interface.Repository
 {
     public interface IAddressRepository
     {
-        public bool Add();
-        public bool Update();
+        Task<bool> Add(InputAddressDto inputAddress);
 
-        public bool Delete();
+        Task<bool> Update(int Id, InputAddressDto inputAddress);
 
-        public AddressDto GetById();
+        Task<bool> Delete(int Id);
 
-        public List<AddressDto> GetAll();
+        Task<OutputAddressDto> GetById(int Id);
+
+        Task<List<OutputAddressDto>>  GetAll();
     }
 }
